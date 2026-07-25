@@ -3,17 +3,76 @@
   <url><loc>https://cvenezuelaproperties.com/</loc><lastmod>2026-07-25</lastmod><priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/"/></url>
   <url><loc>https://cvenezuelaproperties.com/en</loc><lastmod>2026-07-25</lastmod><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/"/>
-  </url>
-  <url><loc>https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://cvenezuelaproperties.com/blog/buy-property-venezuela-from-abroad.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://cvenezuelaproperties.com/blog/investing-maracaibo-real-estate.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://cvenezuelaproperties.com/blog/moving-back-to-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/index.html</loc><lastmod>2026-07-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/index-en.html</loc><lastmod>2026-07-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/buy-property-venezuela-from-abroad.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/buy-property-venezuela-from-abroad.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/buy-property-venezuela-from-abroad.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/comprar-propiedad-venezuela-desde-el-exterior.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/investing-maracaibo-real-estate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/investing-maracaibo-real-estate.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/investing-maracaibo-real-estate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/invertir-bienes-raices-maracaibo.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/moving-back-to-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/moving-back-to-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/moving-back-to-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/regresar-a-vivir-a-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/poder-registrado-vs-apostillado-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/poder-registrado-vs-apostillado-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/power-of-attorney-buy-sell-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/poder-registrado-vs-apostillado-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/power-of-attorney-buy-sell-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/poder-registrado-vs-apostillado-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/power-of-attorney-buy-sell-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/poder-registrado-vs-apostillado-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/es-seguro-invertir-bienes-raices-venezuela-2026.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/es-seguro-invertir-bienes-raices-venezuela-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/is-it-safe-invest-venezuela-real-estate-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/es-seguro-invertir-bienes-raices-venezuela-2026.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/is-it-safe-invest-venezuela-real-estate-2026.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/es-seguro-invertir-bienes-raices-venezuela-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/is-it-safe-invest-venezuela-real-estate-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/es-seguro-invertir-bienes-raices-venezuela-2026.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/comprar-para-alquilar-maracaibo-zulia-rentabilidad.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/comprar-para-alquilar-maracaibo-zulia-rentabilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/buy-to-let-maracaibo-zulia-rental-yield.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/comprar-para-alquilar-maracaibo-zulia-rentabilidad.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/buy-to-let-maracaibo-zulia-rental-yield.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/comprar-para-alquilar-maracaibo-zulia-rentabilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/buy-to-let-maracaibo-zulia-rental-yield.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/comprar-para-alquilar-maracaibo-zulia-rentabilidad.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/vivir-en-bella-vista-maracaibo-guia.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/vivir-en-bella-vista-maracaibo-guia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/living-in-bella-vista-maracaibo-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/vivir-en-bella-vista-maracaibo-guia.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/living-in-bella-vista-maracaibo-guide.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/vivir-en-bella-vista-maracaibo-guia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/living-in-bella-vista-maracaibo-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/vivir-en-bella-vista-maracaibo-guia.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/documentos-para-vender-propiedad-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/documentos-para-vender-propiedad-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/documents-to-sell-property-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/documentos-para-vender-propiedad-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/documents-to-sell-property-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvenezuelaproperties.com/blog/documentos-para-vender-propiedad-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvenezuelaproperties.com/blog/documents-to-sell-property-venezuela.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvenezuelaproperties.com/blog/documentos-para-vender-propiedad-venezuela.html"/></url>
+  <url><loc>https://cvenezuelaproperties.com/blog/alquilar-antes-de-comprar-al-regresar-venezuela.html</loc><lastmod>2026-07-25</lastmod><priority>0.8</priority></url>
 </urlset>
