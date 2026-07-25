@@ -291,6 +291,7 @@
   }
   .campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--oro);outline:none}
   .campo textarea{min-height:140px;resize:vertical}
+  .form-status{margin-top:1.2rem;font-size:.98rem;line-height:1.5}
   .form-nota{font-family:var(--serif);font-style:italic;color:var(--tinta-suave);font-size:1.05rem;margin-top:1.2rem}
   .contacto-datos{border-left:1px solid var(--hairline);padding-left:clamp(1.5rem,4vw,3rem)}
   .contacto-datos dl{display:grid;gap:1.6rem;margin-top:2rem}
@@ -660,7 +661,11 @@
       <p class="kicker reveal">Contacto</p>
       <h2 id="contacto-titulo" class="reveal reveal-d1">Una conversación, sin compromiso</h2>
       <div class="contacto-grid">
-        <form id="form-consulta" class="reveal reveal-d2" novalidate>
+        <form id="form-consulta" class="reveal reveal-d2" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="c01546fe-c99b-4444-987c-04f7550451ea">
+          <input type="hidden" name="subject" value="Nueva consulta desde el sitio de Claudia Velazco">
+          <input type="hidden" name="from_name" value="Sitio web Claudia Velazco">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important" aria-hidden="true">
           <div class="campo">
             <label for="f-nombre">Nombre completo</label>
             <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
@@ -687,6 +692,7 @@
             <textarea id="f-mensaje" name="mensaje" required></textarea>
           </div>
           <button class="btn" type="submit">Enviar consulta</button>
+          <p class="form-status" id="form-status" role="status" hidden></p>
           <p class="form-nota">Respondo personalmente en menos de 24 horas.</p>
         </form>
         <aside class="contacto-datos reveal reveal-d3">
@@ -695,7 +701,7 @@
           <dl>
             <div>
               <dt>Correo</dt>
-              <dd><a href="mailto:claudiavelazco@eleva.remax.com.ve">claudiavelazco@eleva.remax.com.ve</a></dd>
+              <dd><a href="mailto:claudiavelazco.eleva.remax@gmail.com">claudiavelazco.eleva.remax@gmail.com</a></dd>
             </div>
             <div>
               <dt>Teléfono y WhatsApp</dt>
@@ -748,7 +754,7 @@
     {"@type": "City", "name": "Maracaibo", "containedInPlace": {"@type": "State", "name": "Zulia"}},
     {"@type": "Country", "name": "Venezuela"}
   ],
-  "email": "claudiavelazco@eleva.remax.com.ve",
+  "email": "claudiavelazco.eleva.remax@gmail.com",
   "telephone": "+58-424-7467560",
   "address": {"@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE"},
   "knowsLanguage": ["es", "en"]
@@ -773,23 +779,42 @@
   }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Formulario: sin backend todavía, abre el correo con los datos prellenados
-  document.getElementById('form-consulta').addEventListener('submit', ev => {
-    ev.preventDefault();
-    const f = ev.target;
-    if (!f.reportValidity()) return;
-    const cuerpo = [
-      'Nombre: ' + f.nombre.value,
-      'Correo: ' + f.email.value,
-      'Teléfono: ' + (f.telefono.value || 'No indicado'),
-      'Interés: ' + f.interes.value,
-      '',
-      f.mensaje.value
-    ].join('\n');
-    location.href = 'mailto:claudiavelazco@eleva.remax.com.ve'
-      + '?subject=' + encodeURIComponent('Consulta desde la web: ' + f.interes.value)
-      + '&body=' + encodeURIComponent(cuerpo);
-  });
+  // Formulario conectado a Web3Forms -> llega a cristinavelazco22@gmail.com
+  (function(){
+    var form = document.getElementById('form-consulta');
+    var statusEl = document.getElementById('form-status');
+    var btn = form.querySelector('button[type=submit]');
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if (!form.reportValidity()) return;
+      btn.disabled = true; btn.textContent = 'Enviando...';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Accept': 'application/json'},
+        body: new FormData(form)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        statusEl.hidden = false;
+        if (j.success){
+          form.reset();
+          statusEl.textContent = 'Gracias. Tu consulta fue enviada. Te responderé personalmente en menos de 24 horas.';
+          statusEl.style.color = '#1a7f37';
+          btn.textContent = 'Enviado';
+        } else {
+          statusEl.textContent = 'Hubo un problema al enviar. Escríbeme por WhatsApp o inténtalo de nuevo.';
+          statusEl.style.color = '#AA1120';
+          btn.disabled = false; btn.textContent = 'Enviar consulta';
+        }
+      })
+      .catch(function(){
+        statusEl.hidden = false;
+        statusEl.textContent = 'Hubo un problema al enviar. Escríbeme por WhatsApp o inténtalo de nuevo.';
+        statusEl.style.color = '#AA1120';
+        btn.disabled = false; btn.textContent = 'Enviar consulta';
+      });
+    });
+  })();
 </script>
 </body>
 </html>
