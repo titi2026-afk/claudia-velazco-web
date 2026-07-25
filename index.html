@@ -119,9 +119,25 @@
     transition:background .25s var(--ease),color .25s var(--ease) !important;
   }
   .nav-lang:hover{background:var(--oro);color:var(--marfil) !important}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:9px;flex:none;align-items:center;justify-content:center}
+  .nav-toggle span{display:block;width:26px;height:2px;background:var(--noche);transition:transform .3s var(--ease),opacity .2s var(--ease)}
+  .nav-toggle span+span{margin-top:6px}
+  .nav.open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav.open .nav-toggle span:nth-child(2){opacity:0}
+  .nav.open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   @media (max-width:1180px){.nav-links a{font-size:.76rem;letter-spacing:.08em}}
-  @media (max-width:1024px){.nav-links li:not(:nth-last-child(-n+2)){display:none}}
-  @media (max-width:640px){.brand-name{display:none}.brand-logo{height:38px}.nav-cta{padding:.55rem .9rem !important;font-size:.7rem}.nav-lang{padding:.5rem .8rem !important;font-size:.7rem}.nav-links{gap:.7rem}}
+  @media (max-width:960px){
+    .nav-toggle{display:flex}
+    .nav-menu{position:fixed;top:76px;left:0;right:0;background:var(--marfil);border-bottom:1px solid var(--hairline);max-height:0;overflow:hidden;transition:max-height .35s var(--ease);box-shadow:0 16px 30px rgba(12,39,73,.08)}
+    .nav.open .nav-menu{max-height:calc(100dvh - 76px);overflow-y:auto}
+    .nav-links{flex-direction:column;align-items:stretch;gap:0;padding:.4rem 0 1rem}
+    .nav-links li{width:100%}
+    .nav-links a{display:block;padding:1rem clamp(1.25rem,5vw,2.5rem);font-size:1rem;letter-spacing:.08em;border-bottom:1px solid rgba(196,198,200,.35)}
+    .nav-cta,.nav-lang{border:0 !important;background:transparent !important;padding:1rem clamp(1.25rem,5vw,2.5rem) !important;font-size:1rem !important}
+    .nav-cta{color:var(--oro) !important;font-weight:600}
+    .nav-lang{color:var(--azul) !important}
+  }
+  @media (max-width:400px){.brand-name span{display:none}.brand-name b{font-size:.74rem}.brand-logo{height:36px}}
 
   /* ---------- Botones ---------- */
   .btn{
@@ -460,7 +476,8 @@
         <span>Maracaibo</span>
       </span>
     </a>
-    <nav aria-label="Principal">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+    <nav class="nav-menu" id="nav-menu" aria-label="Principal">
       <ul class="nav-links">
         <li><a href="#propiedades">Propiedades</a></li>
         <li><a href="#servicios">Servicios</a></li>
@@ -715,7 +732,6 @@
           <button class="btn btn-luz" type="submit">Suscribirme</button>
         </form>
         <p class="news-status" id="news-status" role="status" hidden></p>
-        <p class="news-nota">Al suscribirte aceptas recibir correos de Claudia Velazco, RE/MAX Eleva. Cada oficina es independiente.</p>
       </div>
     </div>
   </section>
@@ -1002,6 +1018,15 @@
         btn.disabled = false; btn.textContent = 'Enviar consulta';
       });
     });
+  })();
+
+  // ---- Menu movil (hamburguesa) ----
+  (function(){
+    var nav=document.getElementById('nav'), t=document.getElementById('nav-toggle');
+    if(!t)return;
+    t.addEventListener('click',function(){var open=nav.classList.toggle('open');t.setAttribute('aria-expanded',open?'true':'false');});
+    nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');t.setAttribute('aria-expanded','false');});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');t.setAttribute('aria-expanded','false');}});
   })();
 
   // ---- Galeria / lightbox ----
