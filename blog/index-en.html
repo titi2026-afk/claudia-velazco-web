@@ -44,12 +44,43 @@
   footer{background:var(--noche);color:rgba(255,255,255,.6);font-size:.8rem;text-align:center;padding:2rem 1.5rem;line-height:1.7}
   :focus-visible{outline:2px solid var(--oro);outline-offset:3px}
   @media (max-width:900px){main{grid-template-columns:1fr;max-width:460px}}
+
+  .snav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--hairline)}
+  .snav-in{max-width:1100px;margin:0 auto;padding:.6rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative}
+  .sbrand{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex:none}
+  .sbrand img{height:38px;width:auto}
+  .sbn{display:flex;flex-direction:column;line-height:1.3}
+  .sbn b{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--noche)}
+  .sbn i{font-style:normal;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+  .smenu{display:flex;align-items:center;gap:clamp(1rem,2vw,1.5rem)}
+  .smenu a{font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--tinta-suave);white-space:nowrap}
+  .smenu a:hover{color:var(--noche)}
+  .smenu .slang{border:1px solid var(--oro);padding:.5rem .9rem;color:var(--noche)}
+  .smenu .slang:hover{background:var(--oro);color:#fff}
+  .smenu .scta{background:var(--oro);color:#fff;padding:.6rem 1.1rem}
+  .smenu .scta:hover{background:#AA1120;color:#fff}
+  .snt{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;width:42px;height:42px;padding:9px;align-items:center;justify-content:center}
+  .snt span{display:block;width:24px;height:2px;background:var(--noche)}
+  @media(max-width:860px){
+    .snt{display:flex}
+    .smenu{position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--hairline);flex-direction:column;align-items:stretch;gap:0;max-height:0;overflow:hidden;transition:max-height .35s ease;box-shadow:0 16px 30px rgba(12,39,73,.08)}
+    .snav.open .smenu{max-height:80vh}
+    .smenu a{padding:1rem 1.5rem;border-bottom:1px solid rgba(196,198,200,.35);font-size:.95rem}
+    .smenu .slang,.smenu .scta{border:0;background:transparent;color:var(--noche);text-align:left}
+    .smenu .scta{color:var(--oro);font-weight:600}
+  }
+  .sfoot{background:var(--noche);color:rgba(255,255,255,.7);padding:2.5rem 1.5rem}
+  .sfoot-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1.3rem}
+  .sfoot-logo{background:#fff;padding:.55rem .8rem;display:inline-block}.sfoot-logo img{height:32px;display:block}
+  .sfoot-brand{font-size:.85rem;color:#fff}.sfoot-brand b{letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+  .sfoot-legal{font-size:.74rem;line-height:1.7;flex:1;min-width:260px;margin:0;color:rgba(255,255,255,.6)}
 </style>
 </head>
 <body>
-<header class="nav"><div class="nav-in">
-  <a class="brand" href="../en.html"><img src="../Logos/remax-eleva.webp" alt="RE/MAX Eleva"><b>Claudia Velazco</b></a>
-  <a class="lang" href="index.html">Español</a>
+<header class="snav" id="snav"><div class="snav-in">
+  <a class="sbrand" href="../en.html"><img src="../Logos/remax-eleva.webp" alt="RE/MAX Eleva"><span class="sbn"><b>Claudia Velazco</b><i>Real estate advisor · Maracaibo</i></span></a>
+  <button class="snt" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('snav');this.setAttribute('aria-expanded',n.classList.toggle('open'))"><span></span><span></span><span></span></button>
+  <nav class="smenu" aria-label="Main"><a href="../en.html#propiedades">Properties</a><a href="../en.html#servicios">Services</a><a href="../en.html#sobre">About</a><a href="../en.html#zonas">Areas</a><a href="index-en.html">Blog</a><a class="slang" href="index.html">Español</a><a class="scta" href="../en.html#contacto">Private consultation</a></nav>
 </div></header>
 <header class="hero"><p class="kick">Blog</p><h1>Blog and guides</h1><p>In-depth guides on buying, selling and investing in real estate in Maracaibo and across Zulia: for the diaspora, investors and those returning to Venezuela.</p></header>
 <main>
@@ -66,7 +97,7 @@
       <div class="cb"><p class="ct">Coming home</p><h2>Moving back to Venezuela: a guide to sorting out your home</h2></div>
     </a>
 <a class="card" href="power-of-attorney-buy-sell-venezuela.html">
-      <div class="cm"><img src="../Fotos/web/claudia-de-pie-manos-juntas.jpg" alt="Power of attorney to buy or sell in Venezuela: registered vs. apostilled" loading="lazy"></div>
+      <div class="cm"><img src="../Fotos/maracaibo/web/puente-rafael-urdaneta.jpg" alt="Power of attorney to buy or sell in Venezuela: registered vs. apostilled" loading="lazy"></div>
       <div class="cb"><p class="ct">For the diaspora</p><h2>Power of attorney to buy or sell in Venezuela: registered vs. apostilled</h2></div>
     </a>
 <a class="card" href="is-it-safe-invest-venezuela-real-estate-2026.html">
@@ -87,6 +118,10 @@
     </a>
 </main>
 <div class="back"><a href="../en.html">&#8592; Back to home</a></div>
-<footer>RE/MAX Eleva · Maracaibo, Zulia, Venezuela · Cada oficina de RE/MAX es de propiedad y gestión independiente.<br>&copy; 2026 Claudia Velazco.</footer>
+<footer class="sfoot"><div class="sfoot-in">
+  <span class="sfoot-logo"><img src="../Logos/remax-eleva.webp" alt="RE/MAX Eleva"></span>
+  <div class="sfoot-brand"><b>Claudia Velazco</b><br>Real estate advisor affiliated with RE/MAX Eleva</div>
+  <p class="sfoot-legal">RE/MAX Eleva &middot; Avenida Universidad con Avenida 2 El Milagro, Centro Comercial Villa Mar 2, first floor. Maracaibo, Zulia, Venezuela.<br>Each RE/MAX office is independently owned and operated.<br>&copy; 2026 Claudia Velazco.</p>
+</div></footer>
 </body>
 </html>
