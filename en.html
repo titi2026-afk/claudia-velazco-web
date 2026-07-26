@@ -188,7 +188,7 @@
     transform:translate(18px,18px);
     border:1px solid var(--oro);pointer-events:none;
   }
-  .hero-figure img{aspect-ratio:3/4;object-fit:cover;object-position:center 10%;width:100%;filter:saturate(.92)}
+  .hero-figure img{aspect-ratio:3/4;object-fit:cover;object-position:center 30%;width:100%;filter:saturate(.92)}
   .hero-figure figcaption{
     margin-top:2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-suave);
     text-align:left;
@@ -222,7 +222,6 @@
     display:grid;place-items:center;
     border-bottom:1px solid rgba(196,198,200,.8);
   }
-  .prop-media span{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--azul)}
   .prop{display:flex;flex-direction:column}
   .prop-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex:1}
   .prop-zona{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);margin-bottom:.5rem}
@@ -409,6 +408,10 @@
   .prop-precio em{font-style:normal;font-family:var(--serif);font-weight:500;color:var(--noche);font-size:1.15rem}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
+  .prop-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#fff}
+  .prop-thumb{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;display:block;transition:opacity .2s var(--ease)}
+  .prop-thumb:hover{opacity:.85}
+  .prop-desc{font-size:.9rem;color:var(--tinta-suave);margin:.1rem 0 1rem;line-height:1.6}
   /* ---------- Lightbox ---------- */
   .lb{position:fixed;inset:0;z-index:100;background:rgba(9,20,38,.94);display:none;align-items:center;justify-content:center}
   .lb.open{display:flex}
@@ -539,35 +542,31 @@
       </div>
       <div class="props-grid">
         <article class="prop reveal">
-          <button type="button" class="prop-media" data-gallery="atlantis-1" aria-label="View photos: Apartment in Conjunto Atlantis">
-            <img src="Fotos/propiedades/atlantis-1/01.jpg" alt="Modern kitchen of the apartment in Conjunto Atlantis, Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
-            <span class="prop-badge">For rent</span><span class="prop-ver">View photos</span>
+          <button type="button" class="prop-media" data-gallery="atlantis-1" aria-label="View photos: Apartment in Torre G">
+            <img src="Fotos/propiedades/atlantis-1/01.jpg" alt="Italian kitchen of the apartment in Torre G, near Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
+            <span class="prop-badge">For sale</span><span class="prop-ver">View photos</span>
           </button>
+          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/03.jpg" alt="" loading="lazy"></div>
           <div class="prop-body">
-            <p class="prop-zona">Bella Vista, Maracaibo, Zulia</p>
-            <h3>Apartment in Conjunto Atlantis</h3>
-            <div class="prop-specs">
-              <div><b>2</b><small>Beds</small></div>
-              <div><b>2</b><small>Baths</small></div>
-              <div><b>2</b><small>Parking</small></div>
-            </div>
-            <div class="prop-precio"><em>$1,200 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20in%20Conjunto%20Atlantis%20(Bella%20Vista)." target="_blank" rel="noopener">More information</a></div>
+            <p class="prop-zona">Torre G, near Bella Vista, Maracaibo, Zulia</p>
+            <h3>Apartment in Torre G</h3>
+            <p class="prop-desc">3rd floor, furnished and move-in ready. Integrated Italian kitchen, 5-ton central air conditioning and no power rationing. Building with 24/7 security, CCTV, playground and party lounge.</p>
+            <div class="prop-specs"><div><b>93</b><small>m²</small></div><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
+            <div class="prop-precio"><em>$139,000</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20sale%20in%20Torre%20G." target="_blank" rel="noopener">More information</a></div>
           </div>
         </article>
         <article class="prop reveal reveal-d1">
           <button type="button" class="prop-media" data-gallery="atlantis-2" aria-label="View photos: Apartment in Conjunto Atlantis">
-            <img src="Fotos/propiedades/atlantis-2/01.jpg" alt="Bedroom of the apartment in Conjunto Atlantis, Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
+            <img src="Fotos/propiedades/atlantis-2/01.jpg" alt="Living room of the apartment in Conjunto Atlantis, Av. Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
             <span class="prop-badge">For rent</span><span class="prop-ver">View photos</span>
           </button>
+          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/03.jpg" alt="" loading="lazy"></div>
           <div class="prop-body">
-            <p class="prop-zona">Bella Vista, Maracaibo, Zulia</p>
+            <p class="prop-zona">Av. Bella Vista, Maracaibo, Zulia</p>
             <h3>Apartment in Conjunto Atlantis</h3>
-            <div class="prop-specs">
-              <div><b>2</b><small>Beds</small></div>
-              <div><b>2</b><small>Baths</small></div>
-              <div><b>2</b><small>Parking</small></div>
-            </div>
-            <div class="prop-precio"><em>$1,200 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20in%20Conjunto%20Atlantis%20(Bella%20Vista)." target="_blank" rel="noopener">More information</a></div>
+            <p class="prop-desc">8th floor, semi-furnished. Modernized living-dining area, porcelain floors and central AC. Complex with lap pool, playground and 24-hour security. Terms: 3/2/1.</p>
+            <div class="prop-specs"><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
+            <div class="prop-precio"><em>$1,200 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20rent%20in%20Conjunto%20Atlantis." target="_blank" rel="noopener">More information</a></div>
           </div>
         </article>
         <article class="prop reveal reveal-d2">
@@ -575,14 +574,12 @@
             <img src="Fotos/propiedades/oficinas-la-estrella/01.jpg" alt="Independent offices in Urb. La Estrella, Maracaibo, Zulia" loading="lazy" width="600" height="450">
             <span class="prop-badge">For rent</span><span class="prop-ver">View photos</span>
           </button>
+          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/03.jpg" alt="" loading="lazy"></div>
           <div class="prop-body">
             <p class="prop-zona">Urb. La Estrella, Maracaibo, Zulia</p>
             <h3>Offices in Urb. La Estrella</h3>
-            <div class="prop-specs">
-              <div><b>3</b><small>Offices</small></div>
-              <div><b>4</b><small>Baths</small></div>
-              <div><b>80</b><small>m² Storage</small></div>
-            </div>
+            <p class="prop-desc">Ground floor in a commercial area. 3 independent offices (16, 63 and 23 m²), an 80 m² storage room, central AC and 24/7 water. Optionally furnished.</p>
+            <div class="prop-specs"><div><b>3</b><small>Offices</small></div><div><b>4</b><small>Baths</small></div><div><b>80</b><small>m² Storage</small></div></div>
             <div class="prop-precio"><em>from $160 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20offices%20in%20Urb.%20La%20Estrella." target="_blank" rel="noopener">More information</a></div>
           </div>
         </article>
@@ -1043,7 +1040,7 @@
     function open(name){cur=GAL[name]; if(!cur)return; idx=0; show(); lb.classList.add('open'); document.body.style.overflow='hidden';}
     function close(){lb.classList.remove('open'); lbImg.src=''; document.body.style.overflow='';}
     function move(d){idx=(idx+d+cur.files.length)%cur.files.length; show();}
-    document.querySelectorAll('.prop-media[data-gallery]').forEach(function(b){b.addEventListener('click',function(){open(b.getAttribute('data-gallery'));});});
+    document.querySelectorAll('[data-gallery]').forEach(function(b){b.addEventListener('click',function(){open(b.getAttribute('data-gallery'));});});
     document.getElementById('lb-close').addEventListener('click',close);
     document.getElementById('lb-prev').addEventListener('click',function(){move(-1);});
     document.getElementById('lb-next').addEventListener('click',function(){move(1);});
