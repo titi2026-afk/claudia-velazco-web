@@ -32,5 +32,59 @@
   <p>La página que buscas no existe o cambió de dirección. Volvamos a un lugar conocido.</p>
   <a href="/">Ir al inicio</a>
 </div>
+<!-- bicultura-tracking v1 -->
+<script>
+/* Tracking de leads · Bicultura Lab. Dispara a GA4 los eventos de contacto.
+   No requiere GTM: usa gtag si esta, y si no empuja al dataLayer. */
+(function () {
+  function fire(name, params) {
+    try {
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); return; }
+      window.dataLayer = window.dataLayer || [];
+      var p = {}; for (var k in (params || {})) p[k] = params[k];
+      p.event = name; window.dataLayer.push(p);
+    } catch (err) { /* nunca romper la pagina por un evento */ }
+  }
+
+  /* clics de contacto */
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').trim();
+    if (!href) return;
+    var d = { link_url: href, link_text: (a.textContent || '').trim().slice(0, 80), page_path: location.pathname };
+      if (/wa\.me|api\.whatsapp|whatsapp\.com/i.test(href)) { fire('click_whatsapp', d); return; }
+      if (/^tel:/i.test(href)) { fire('click_phone', d); return; }
+      if (/^mailto:/i.test(href)) { fire('click_email', d); return; }
+      if (/calendly|cal\.com|acuity|appointment|agendar|reservar/i.test(href)) { fire('click_booking', d); return; }
+  }, true);
+
+  /* envio de formulario */
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    var d = {
+      form_id: f.id || '',
+      form_name: f.getAttribute('name') || '',
+      form_action: f.getAttribute('action') || '',
+      page_path: location.pathname
+    };
+    fire('form_submit', d);
+    fire('generate_lead', { source: 'website_form', form_id: d.form_id });
+  }, true);
+
+  /* formularios que envian por fetch/ajax: llamar biculturaLead('nombre') al terminar */
+  window.biculturaLead = function (where) {
+    fire('form_submit', { form_id: where || 'ajax', page_path: location.pathname });
+    fire('generate_lead', { source: where || 'ajax' });
+  };
+
+  /* pagina de gracias = conversion confirmada */
+  if (/gracias|thank-?you|thanks|success|confirmacion/i.test(location.pathname)) {
+    fire('generate_lead', { source: 'thank_you_page', page_path: location.pathname });
+  }
+})();
+</script>
+<!-- /bicultura-tracking -->
 </body>
 </html>

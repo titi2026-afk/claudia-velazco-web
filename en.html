@@ -140,6 +140,24 @@
     .nav-lang{color:var(--azul) !important}
   }
   @media (max-width:400px){.brand-name span{display:none}.brand-name b{font-size:.74rem}.brand-logo{height:36px}}
+  @media (max-width:480px){
+    /* con el boton de WhatsApp en la barra, la hamburguesa necesita ese aire */
+    .nav-inner{gap:.5rem;padding-left:1rem;padding-right:1rem}
+    .nav-wsp{margin-right:0}
+    .brand{min-width:0}
+    .brand-name b{font-size:.72rem;overflow:hidden;text-overflow:ellipsis}
+  }
+
+  /* WhatsApp en la barra movil, a la izquierda de la hamburguesa */
+  .nav-wsp{display:none}
+  @media (max-width:960px){
+    .nav-wsp{
+      display:grid;place-items:center;flex:none;
+      width:44px;height:44px;border-radius:50%;
+      background:#25D366;margin-left:auto;margin-right:.35rem;
+    }
+    .nav-wsp svg{width:23px;height:23px;fill:#fff}
+  }
 
   /* ---------- Botones ---------- */
   .btn{
@@ -156,6 +174,9 @@
   .btn-ghost:hover{background:var(--noche);color:var(--marfil);border-color:var(--noche)}
   .btn-luz{background:#fff;border-color:#fff;color:var(--noche)}
   .btn-luz:hover{background:var(--oro);border-color:var(--oro);color:#fff}
+  /* Boton secundario en gris: lleva a ver mas, no compite con el rojo del CTA principal */
+  .btn-cta{background:var(--tinta-suave);border-color:var(--tinta-suave);color:#fff;font-weight:700}
+  .btn-cta:hover{background:var(--tinta);border-color:var(--tinta);color:#fff}
 
   /* ---------- Etiquetas de sección ---------- */
   .kicker{
@@ -170,8 +191,6 @@
   .lede{color:var(--tinta-suave);text-align:justify}
 
   section{padding:clamp(4.5rem,9vw,7.5rem) 0}
-  #propiedades{padding-bottom:clamp(2.5rem,5vw,4rem)}
-  #blog{padding-top:clamp(2.5rem,4vw,3.5rem)}
 
   /* ---------- Hero ---------- */
   .hero{padding:calc(76px + clamp(3rem,8vw,5.5rem)) 0 clamp(4rem,8vw,6rem)}
@@ -198,9 +217,20 @@
     text-align:left;
   }
   @media (max-width:820px){
-    .hero-grid{grid-template-columns:1fr}
-    .hero-figure{justify-self:start;width:min(100%,380px)}
+    .hero-grid{grid-template-columns:1fr;gap:1.8rem}
+    /* la foto sube y se vuelve un banner compacto, para que se vea sin bajar */
+    .hero-figure{order:-1;justify-self:stretch;width:100%}
+    .hero-figure img{aspect-ratio:16/10;object-position:center 18%}
+    .hero-marco::before{display:none}
+    .hero-figure figcaption{display:none}
   }
+
+  @media (max-width:480px){
+    /* botones del hero a lo ancho: en ingles el texto es largo y se salia */
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{white-space:normal;width:100%}
+  }
+  @media (max-width:340px){.brand-name{display:none}}
 
   /* ---------- Respaldo (franja oscura) ---------- */
   .respaldo{background:linear-gradient(rgba(9,28,58,.92),rgba(9,28,58,.92)),url("Fotos/maracaibo/web/puente-rafael-urdaneta.jpg") center/cover no-repeat;color:var(--marfil)}
@@ -228,18 +258,23 @@
   }
   .prop{display:flex;flex-direction:column}
   .prop-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex:1}
-  .prop-zona{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);margin-bottom:.5rem}
+  /* rojo un punto mas oscuro: el label es pequeno y necesita 4.5:1 sobre el fondo de la tarjeta */
+  .prop-zona{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#D0192A;margin-bottom:.5rem}
   .prop h3{font-size:1.45rem;margin-bottom:1rem}
   .prop-specs{
-    display:flex;gap:1.6rem;padding:1rem 0;margin-bottom:1.2rem;
+    display:flex;flex-wrap:wrap;gap:1.6rem;row-gap:.9rem;padding:1rem 0;margin-bottom:1.2rem;
     border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
   }
   .prop-specs div{line-height:1.3}
-  .prop-specs b{font-family:var(--serif);font-weight:500;font-size:1.35rem;color:var(--noche);display:block}
+  @media (max-width:400px){.prop-specs{gap:1.1rem}}
+  /* cifras en sans: la serif de titulares se lee mal en numeros pequenos */
+  .prop-specs b{font-family:var(--sans);font-weight:600;font-size:1.3rem;line-height:1.2;color:var(--noche);display:block;font-variant-numeric:lining-nums tabular-nums;letter-spacing:.01em}
   .prop-specs small{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
-  .prop-precio{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:1rem}
+  .prop-precio{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;justify-content:space-between;align-items:center;margin-top:auto;padding-top:1rem}
   .prop-precio em{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--tinta-suave)}
-  .prop-precio a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--azul);border-bottom:1px solid var(--azul);padding-bottom:2px}
+  /* el enlace es un touch target: minimo 44px de alto en movil */
+  .prop-precio a{display:inline-flex;align-items:center;min-height:44px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--azul);border-bottom:1px solid var(--azul);padding-bottom:2px}
+  .props-mas{margin-top:2.8rem;text-align:center}
   .props-nota{margin-top:2.6rem;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--tinta-suave)}
   @media (max-width:900px){.props-grid{grid-template-columns:1fr;max-width:460px}}
 
@@ -420,15 +455,39 @@
   .prop-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
   .prop:hover .prop-media img{transform:scale(1.05)}
   .prop-badge{position:absolute;top:1rem;left:1rem;background:var(--azul);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .8rem}
+  .prop-badge-venta{background:var(--oro)}
   .prop-ver{position:absolute;bottom:1rem;right:1rem;background:rgba(12,39,73,.86);color:#fff;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.45rem .85rem;opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
   .prop:hover .prop-ver,.prop-media:focus-visible .prop-ver{opacity:1;transform:none}
-  .prop-precio em{font-style:normal;font-family:var(--serif);font-weight:500;color:var(--noche);font-size:1.15rem}
+  .prop-precio em{font-style:normal;font-family:var(--sans);font-weight:700;color:var(--noche);font-size:1.2rem;font-variant-numeric:lining-nums tabular-nums;letter-spacing:.005em}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
   .prop-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#fff}
   .prop-thumb{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;display:block;transition:opacity .2s var(--ease)}
   .prop-thumb:hover{opacity:.85}
   .prop-desc{font-size:.9rem;color:var(--tinta-suave);margin:.1rem 0 1rem;line-height:1.6}
+  /* ---------- Galeria en la tarjeta: una foto y flechas blancas ---------- */
+  .prop-media{position:relative;display:block;padding:0;border:0;cursor:default}
+  .prop-abrir{position:absolute;inset:0;z-index:1;background:none;border:0;padding:0;cursor:pointer}
+  .prop-flecha{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:44px;height:44px;border:0;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,.94);color:var(--noche);
+    font-family:var(--sans);font-size:1.5rem;line-height:1;
+    display:grid;place-items:center;
+    box-shadow:0 2px 10px rgba(12,39,73,.25);
+    transition:background .25s var(--ease),transform .25s var(--ease);
+  }
+  .prop-flecha:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+  .prop-flecha.izq{left:10px}
+  .prop-flecha.der{right:10px}
+  .prop-contador{
+    position:absolute;bottom:10px;right:10px;z-index:2;
+    background:rgba(12,39,73,.78);color:#fff;
+    font-size:.72rem;letter-spacing:.08em;padding:.32rem .62rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .prop-ver{left:1rem;right:auto;bottom:1rem}
+  .prop:hover .prop-media img{transform:none}
   /* ---------- Lightbox ---------- */
   .lb{position:fixed;inset:0;z-index:100;background:rgba(9,20,38,.94);display:none;align-items:center;justify-content:center}
   .lb.open{display:flex}
@@ -496,13 +555,13 @@
         <span>Maracaibo, Zulia</span>
       </span>
     </a>
+      <a class="nav-wsp" href="https://wa.me/584247467560" target="_blank" rel="noopener" aria-label="Message me on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.06 3 3.4 8.66 3.4 15.64c0 2.23.58 4.4 1.69 6.31L3.3 28.7l6.9-1.81a12.6 12.6 0 0 0 5.84 1.49h.01c6.97 0 12.63-5.66 12.63-12.64 0-3.38-1.31-6.55-3.7-8.94A12.55 12.55 0 0 0 16.04 3zm0 23.25h-.01a10.5 10.5 0 0 1-5.35-1.47l-.38-.23-3.98 1.05 1.06-3.88-.25-.4a10.47 10.47 0 0 1-1.6-5.58c0-5.8 4.72-10.51 10.52-10.51 2.81 0 5.45 1.1 7.43 3.08a10.44 10.44 0 0 1 3.08 7.44c0 5.8-4.72 10.5-10.52 10.5zm5.77-7.87c-.32-.16-1.87-.92-2.16-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.33-.49-2.54-1.56-.94-.84-1.57-1.87-1.76-2.19-.18-.32-.02-.49.14-.65.14-.14.32-.37.47-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.75.75.33 1.34.52 1.8.66.76.24 1.44.21 1.99.13.61-.09 1.87-.76 2.13-1.5.26-.74.26-1.37.18-1.5-.08-.13-.29-.21-.61-.37z"/></svg></a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
     <nav class="nav-menu" id="nav-menu" aria-label="Main">
       <ul class="nav-links">
         <li><a href="#propiedades">Properties</a></li>
         <li><a href="#servicios">Services</a></li>
         <li><a href="#sobre">About</a></li>
-        <li><a href="#zonas">Areas</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a class="nav-lang" href="index.html" lang="es" title="Versión en español">Español</a></li>
         <li><a class="nav-cta" href="#contacto">Private consultation</a></li>
@@ -533,6 +592,74 @@
     </div>
   </section>
 
+  <!-- PROPIEDADES -->
+  <section id="propiedades" aria-labelledby="props-titulo">
+    <div class="wrap">
+      <div class="props-head">
+        <div>
+          <p class="kicker reveal">Portfolio</p>
+          <h2 id="props-titulo" class="reveal reveal-d1">Selected properties</h2>
+        </div>
+        <a class="btn btn-cta reveal reveal-d2" href="properties.html">View more properties</a>
+      </div>
+      <div class="props-grid">
+        <article class="prop reveal">
+          <div class="prop-media" data-galeria="atlantis-1" data-n="3">
+            <img data-foto src="Fotos/propiedades/atlantis-1/01.jpg" alt="Italian kitchen of the apartment in Torre G, near Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
+            <span class="prop-badge prop-badge-venta">For sale</span>
+            <button type="button" class="prop-abrir" data-gallery="atlantis-1" aria-label="View photos: Apartment in Torre G"><span class="prop-ver">View photos</span></button>
+            <button type="button" class="prop-flecha izq" data-paso="-1" aria-label="Previous photo">&#8249;</button>
+            <button type="button" class="prop-flecha der" data-paso="1" aria-label="Next photo">&#8250;</button>
+            <span class="prop-contador" data-contador>1 / 3</span>
+          </div>
+          <div class="prop-body">
+            <p class="prop-zona">Torre G, near Bella Vista, Maracaibo, Zulia</p>
+            <h3>Apartment in Torre G</h3>
+            <p class="prop-desc">3rd floor, furnished and move-in ready. Integrated Italian kitchen, 5-ton central air conditioning and no power rationing. Building with 24/7 security, CCTV, playground and party lounge.</p>
+            <div class="prop-specs"><div><b>93</b><small>m²</small></div><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
+            <div class="prop-precio"><em>$139,000</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20sale%20in%20Torre%20G." target="_blank" rel="noopener">More information</a></div>
+          </div>
+        </article>
+        <article class="prop reveal reveal-d1">
+          <div class="prop-media" data-galeria="atlantis-2" data-n="3">
+            <img data-foto src="Fotos/propiedades/atlantis-2/01.jpg" alt="Living room of the apartment in Conjunto Atlantis, Av. Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
+            <span class="prop-badge">For rent</span>
+            <button type="button" class="prop-abrir" data-gallery="atlantis-2" aria-label="View photos: Apartment in Conjunto Atlantis"><span class="prop-ver">View photos</span></button>
+            <button type="button" class="prop-flecha izq" data-paso="-1" aria-label="Previous photo">&#8249;</button>
+            <button type="button" class="prop-flecha der" data-paso="1" aria-label="Next photo">&#8250;</button>
+            <span class="prop-contador" data-contador>1 / 3</span>
+          </div>
+          <div class="prop-body">
+            <p class="prop-zona">Av. Bella Vista, Maracaibo, Zulia</p>
+            <h3>Apartment in Conjunto Atlantis</h3>
+            <p class="prop-desc">8th floor, semi-furnished. Modernized living-dining area, porcelain floors and central AC. Complex with lap pool, playground and 24-hour security. Terms: 3/2/1.</p>
+            <div class="prop-specs"><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
+            <div class="prop-precio"><em>$1,200 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20rent%20in%20Conjunto%20Atlantis." target="_blank" rel="noopener">More information</a></div>
+          </div>
+        </article>
+        <article class="prop reveal reveal-d2">
+          <div class="prop-media" data-galeria="oficinas-la-estrella" data-n="18">
+            <img data-foto src="Fotos/propiedades/oficinas-la-estrella/01.jpg" alt="Independent offices in Urb. La Estrella, Maracaibo, Zulia" loading="lazy" width="600" height="450">
+            <span class="prop-badge">For rent</span>
+            <button type="button" class="prop-abrir" data-gallery="oficinas-la-estrella" aria-label="View photos: Offices in Urb. La Estrella"><span class="prop-ver">View photos</span></button>
+            <button type="button" class="prop-flecha izq" data-paso="-1" aria-label="Previous photo">&#8249;</button>
+            <button type="button" class="prop-flecha der" data-paso="1" aria-label="Next photo">&#8250;</button>
+            <span class="prop-contador" data-contador>1 / 18</span>
+          </div>
+          <div class="prop-body">
+            <p class="prop-zona">Urb. La Estrella, Maracaibo, Zulia</p>
+            <h3>Offices in Urb. La Estrella</h3>
+            <p class="prop-desc">Ground floor in a commercial area. 3 independent offices (16, 63 and 23 m²), an 80 m² storage room, central AC and 24/7 water. Optionally furnished.</p>
+            <div class="prop-specs"><div><b>3</b><small>Offices</small></div><div><b>4</b><small>Baths</small></div><div><b>80</b><small>m² Storage</small></div></div>
+            <div class="prop-precio"><em>from $160 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20offices%20in%20Urb.%20La%20Estrella." target="_blank" rel="noopener">More information</a></div>
+          </div>
+        </article>
+      </div>
+      <p class="props-mas reveal"><a class="btn btn-cta" href="properties.html">View more properties</a></p>
+      <p class="props-nota reveal">The portfolio is shared privately and updated every week. Write to me and I will send you the available properties that match what you are looking for.</p>
+    </div>
+  </section>
+
   <!-- RESPALDO -->
   <section class="respaldo" aria-labelledby="respaldo-titulo">
     <div class="wrap">
@@ -544,64 +671,6 @@
         <div class="respaldo-item reveal reveal-d2"><strong class="count">140,000+</strong><span>Agents in the network</span></div>
       </div>
       <p class="respaldo-nota reveal">Every transaction I manage in Maracaibo, Zulia is backed by the processes, training and reach of the largest real estate network in the world.</p>
-    </div>
-  </section>
-
-  <!-- PROPIEDADES -->
-  <section id="propiedades" aria-labelledby="props-titulo">
-    <div class="wrap">
-      <div class="props-head">
-        <div>
-          <p class="kicker reveal">Portfolio</p>
-          <h2 id="props-titulo" class="reveal reveal-d1">Selected properties</h2>
-        </div>
-        <a class="btn btn-ghost reveal reveal-d2" href="#contacto">Request portfolio access</a>
-      </div>
-      <div class="props-grid">
-        <article class="prop reveal">
-          <button type="button" class="prop-media" data-gallery="atlantis-1" aria-label="View photos: Apartment in Torre G">
-            <img src="Fotos/propiedades/atlantis-1/01.jpg" alt="Italian kitchen of the apartment in Torre G, near Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
-            <span class="prop-badge">For sale</span><span class="prop-ver">View photos</span>
-          </button>
-          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-1" src="Fotos/propiedades/atlantis-1/03.jpg" alt="" loading="lazy"></div>
-          <div class="prop-body">
-            <p class="prop-zona">Torre G, near Bella Vista, Maracaibo, Zulia</p>
-            <h3>Apartment in Torre G</h3>
-            <p class="prop-desc">3rd floor, furnished and move-in ready. Integrated Italian kitchen, 5-ton central air conditioning and no power rationing. Building with 24/7 security, CCTV, playground and party lounge.</p>
-            <div class="prop-specs"><div><b>93</b><small>m²</small></div><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
-            <div class="prop-precio"><em>$139,000</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20sale%20in%20Torre%20G." target="_blank" rel="noopener">More information</a></div>
-          </div>
-        </article>
-        <article class="prop reveal reveal-d1">
-          <button type="button" class="prop-media" data-gallery="atlantis-2" aria-label="View photos: Apartment in Conjunto Atlantis">
-            <img src="Fotos/propiedades/atlantis-2/01.jpg" alt="Living room of the apartment in Conjunto Atlantis, Av. Bella Vista, Maracaibo, Zulia" loading="lazy" width="600" height="450">
-            <span class="prop-badge">For rent</span><span class="prop-ver">View photos</span>
-          </button>
-          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="atlantis-2" src="Fotos/propiedades/atlantis-2/03.jpg" alt="" loading="lazy"></div>
-          <div class="prop-body">
-            <p class="prop-zona">Av. Bella Vista, Maracaibo, Zulia</p>
-            <h3>Apartment in Conjunto Atlantis</h3>
-            <p class="prop-desc">8th floor, semi-furnished. Modernized living-dining area, porcelain floors and central AC. Complex with lap pool, playground and 24-hour security. Terms: 3/2/1.</p>
-            <div class="prop-specs"><div><b>2</b><small>Beds</small></div><div><b>2</b><small>Baths</small></div><div><b>2</b><small>Parking</small></div></div>
-            <div class="prop-precio"><em>$1,200 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20apartment%20for%20rent%20in%20Conjunto%20Atlantis." target="_blank" rel="noopener">More information</a></div>
-          </div>
-        </article>
-        <article class="prop reveal reveal-d2">
-          <button type="button" class="prop-media" data-gallery="oficinas-la-estrella" aria-label="View photos: Offices in Urb. La Estrella">
-            <img src="Fotos/propiedades/oficinas-la-estrella/01.jpg" alt="Independent offices in Urb. La Estrella, Maracaibo, Zulia" loading="lazy" width="600" height="450">
-            <span class="prop-badge">For rent</span><span class="prop-ver">View photos</span>
-          </button>
-          <div class="prop-thumbs"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/01.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/02.jpg" alt="" loading="lazy"><img class="prop-thumb" data-gallery="oficinas-la-estrella" src="Fotos/propiedades/oficinas-la-estrella/03.jpg" alt="" loading="lazy"></div>
-          <div class="prop-body">
-            <p class="prop-zona">Urb. La Estrella, Maracaibo, Zulia</p>
-            <h3>Offices in Urb. La Estrella</h3>
-            <p class="prop-desc">Ground floor in a commercial area. 3 independent offices (16, 63 and 23 m²), an 80 m² storage room, central AC and 24/7 water. Optionally furnished.</p>
-            <div class="prop-specs"><div><b>3</b><small>Offices</small></div><div><b>4</b><small>Baths</small></div><div><b>80</b><small>m² Storage</small></div></div>
-            <div class="prop-precio"><em>from $160 / mo</em><a href="https://wa.me/584247467560?text=Hi%20Claudia,%20I'm%20interested%20in%20the%20offices%20in%20Urb.%20La%20Estrella." target="_blank" rel="noopener">More information</a></div>
-          </div>
-        </article>
-      </div>
-      <p class="props-nota reveal">The portfolio is shared privately and updated every week. Write to me and I will send you the available properties that match what you are looking for.</p>
     </div>
   </section>
 
@@ -835,7 +904,7 @@
     </div>
     <p class="footer-legal">RE/MAX Eleva · Avenida Universidad con Avenida 2 El Milagro, Centro Comercial Villa Mar 2, first floor. Maracaibo, Zulia, Venezuela.<br>Each RE/MAX office is independently owned and operated.<br>© 2026 Claudia Velazco. All rights reserved.</p>
   </div>
-  <div class="footer-credit"><a href="https://biculturalab.com" target="_blank" rel="noopener">Website by Bicultura Lab</a></div>
+  <div class="footer-credit"><a href="https://biculturalab.com/?utm_source=claudiavelazco&amp;utm_medium=footer-credit&amp;utm_campaign=client-sites&amp;utm_content=en" target="_blank" rel="noopener">Website by Bicultura Lab</a></div>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galeria de fotos">
@@ -1050,6 +1119,30 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');t.setAttribute('aria-expanded','false');}});
   })();
 
+
+  // ---- Carrusel dentro de cada tarjeta: una foto y flechas ----
+  var POS = {};
+  (function(){
+    document.querySelectorAll('.prop-media[data-galeria]').forEach(function(m){
+      var slug=m.getAttribute('data-galeria'), n=parseInt(m.getAttribute('data-n'),10);
+      var img=m.querySelector('[data-foto]'), cont=m.querySelector('[data-contador]');
+      POS[slug]=0;
+      if(n<2) return;
+      function pinta(){
+        var i=POS[slug];
+        img.src='Fotos/propiedades/'+slug+'/'+(i<9?'0':'')+(i+1)+'.jpg';
+        if(cont) cont.textContent=(i+1)+' / '+n;
+      }
+      m.querySelectorAll('.prop-flecha').forEach(function(f){
+        f.addEventListener('click',function(ev){
+          ev.preventDefault();
+          POS[slug]=(POS[slug]+parseInt(f.getAttribute('data-paso'),10)+n)%n;
+          pinta();
+        });
+      });
+    });
+  })();
+
   // ---- Galeria / lightbox ----
   var GAL = {
     "atlantis-1": {dir:"Fotos/propiedades/atlantis-1", files:[1,2,3]},
@@ -1061,7 +1154,7 @@
     var cur=null, idx=0;
     function pad(n){return (n<10?'0':'')+n;}
     function show(){var f=cur.files[idx]; lbImg.src=cur.dir+'/'+pad(f)+'.jpg'; lbCount.textContent=(idx+1)+' / '+cur.files.length;}
-    function open(name){cur=GAL[name]; if(!cur)return; idx=0; show(); lb.classList.add('open'); document.body.style.overflow='hidden';}
+    function open(name){cur=GAL[name]; if(!cur)return; idx=POS[name]||0; show(); lb.classList.add('open'); document.body.style.overflow='hidden';}
     function close(){lb.classList.remove('open'); lbImg.src=''; document.body.style.overflow='';}
     function move(d){idx=(idx+d+cur.files.length)%cur.files.length; show();}
     document.querySelectorAll('[data-gallery]').forEach(function(b){b.addEventListener('click',function(){open(b.getAttribute('data-gallery'));});});
@@ -1100,5 +1193,59 @@
     });
   })();
 </script>
+<!-- bicultura-tracking v1 -->
+<script>
+/* Tracking de leads · Bicultura Lab. Dispara a GA4 los eventos de contacto.
+   No requiere GTM: usa gtag si esta, y si no empuja al dataLayer. */
+(function () {
+  function fire(name, params) {
+    try {
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); return; }
+      window.dataLayer = window.dataLayer || [];
+      var p = {}; for (var k in (params || {})) p[k] = params[k];
+      p.event = name; window.dataLayer.push(p);
+    } catch (err) { /* nunca romper la pagina por un evento */ }
+  }
+
+  /* clics de contacto */
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').trim();
+    if (!href) return;
+    var d = { link_url: href, link_text: (a.textContent || '').trim().slice(0, 80), page_path: location.pathname };
+      if (/wa\.me|api\.whatsapp|whatsapp\.com/i.test(href)) { fire('click_whatsapp', d); return; }
+      if (/^tel:/i.test(href)) { fire('click_phone', d); return; }
+      if (/^mailto:/i.test(href)) { fire('click_email', d); return; }
+      if (/calendly|cal\.com|acuity|appointment|agendar|reservar/i.test(href)) { fire('click_booking', d); return; }
+  }, true);
+
+  /* envio de formulario */
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    var d = {
+      form_id: f.id || '',
+      form_name: f.getAttribute('name') || '',
+      form_action: f.getAttribute('action') || '',
+      page_path: location.pathname
+    };
+    fire('form_submit', d);
+    fire('generate_lead', { source: 'website_form', form_id: d.form_id });
+  }, true);
+
+  /* formularios que envian por fetch/ajax: llamar biculturaLead('nombre') al terminar */
+  window.biculturaLead = function (where) {
+    fire('form_submit', { form_id: where || 'ajax', page_path: location.pathname });
+    fire('generate_lead', { source: where || 'ajax' });
+  };
+
+  /* pagina de gracias = conversion confirmada */
+  if (/gracias|thank-?you|thanks|success|confirmacion/i.test(location.pathname)) {
+    fire('generate_lead', { source: 'thank_you_page', page_path: location.pathname });
+  }
+})();
+</script>
+<!-- /bicultura-tracking -->
 </body>
 </html>

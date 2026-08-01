@@ -172,6 +172,60 @@
   <span class="sfoot-logo"><img src="../Logos/remax-eleva.webp" alt="RE/MAX Eleva"></span>
   <div class="sfoot-brand"><b>Claudia Velazco</b><br>Asesora inmobiliaria afiliada a RE/MAX Eleva<div class="sfoot-social"><a href="https://www.instagram.com/claudia.remaxeleva/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 3.06A6.74 6.74 0 1 0 18.74 12 6.74 6.74 0 0 0 12 5.26Zm0 11.12A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38Zm6.96-11.34a1.58 1.58 0 1 1-3.15 0 1.58 1.58 0 0 1 3.15 0Z"/></svg></a><a href="https://www.tiktok.com/@claudia.remax.ele" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3v13.1a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.78.12v-3.1a5.7 5.7 0 0 0-.78-.05A5.66 5.66 0 1 0 16.66 15V8.2a7.1 7.1 0 0 0 4.14 1.33V6.5a4.14 4.14 0 0 1-4.2-4.5Z"/></svg></a><a href="https://www.facebook.com/ClaudiaRemaxEleva" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg></a></div></div>
   <p class="sfoot-legal">RE/MAX Eleva &middot; Avenida Universidad con Avenida 2 El Milagro, Centro Comercial Villa Mar 2, primer piso. Maracaibo, Zulia, Venezuela.<br>Cada oficina de RE/MAX es de propiedad y gestión independiente.<br>&copy; 2026 Claudia Velazco.</p>
-</div><div class="sfoot-credit"><a href="https://biculturalab.com" target="_blank" rel="noopener">Sitio creado por Bicultura Lab</a></div></footer>
+</div><div class="sfoot-credit"><a href="https://biculturalab.com/?utm_source=claudiavelazco&amp;utm_medium=footer-credit&amp;utm_campaign=client-sites&amp;utm_content=es" target="_blank" rel="noopener">Sitio creado por Bicultura Lab</a></div></footer>
+<!-- bicultura-tracking v1 -->
+<script>
+/* Tracking de leads · Bicultura Lab. Dispara a GA4 los eventos de contacto.
+   No requiere GTM: usa gtag si esta, y si no empuja al dataLayer. */
+(function () {
+  function fire(name, params) {
+    try {
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); return; }
+      window.dataLayer = window.dataLayer || [];
+      var p = {}; for (var k in (params || {})) p[k] = params[k];
+      p.event = name; window.dataLayer.push(p);
+    } catch (err) { /* nunca romper la pagina por un evento */ }
+  }
+
+  /* clics de contacto */
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').trim();
+    if (!href) return;
+    var d = { link_url: href, link_text: (a.textContent || '').trim().slice(0, 80), page_path: location.pathname };
+      if (/wa\.me|api\.whatsapp|whatsapp\.com/i.test(href)) { fire('click_whatsapp', d); return; }
+      if (/^tel:/i.test(href)) { fire('click_phone', d); return; }
+      if (/^mailto:/i.test(href)) { fire('click_email', d); return; }
+      if (/calendly|cal\.com|acuity|appointment|agendar|reservar/i.test(href)) { fire('click_booking', d); return; }
+  }, true);
+
+  /* envio de formulario */
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    var d = {
+      form_id: f.id || '',
+      form_name: f.getAttribute('name') || '',
+      form_action: f.getAttribute('action') || '',
+      page_path: location.pathname
+    };
+    fire('form_submit', d);
+    fire('generate_lead', { source: 'website_form', form_id: d.form_id });
+  }, true);
+
+  /* formularios que envian por fetch/ajax: llamar biculturaLead('nombre') al terminar */
+  window.biculturaLead = function (where) {
+    fire('form_submit', { form_id: where || 'ajax', page_path: location.pathname });
+    fire('generate_lead', { source: where || 'ajax' });
+  };
+
+  /* pagina de gracias = conversion confirmada */
+  if (/gracias|thank-?you|thanks|success|confirmacion/i.test(location.pathname)) {
+    fire('generate_lead', { source: 'thank_you_page', page_path: location.pathname });
+  }
+})();
+</script>
+<!-- /bicultura-tracking -->
 </body>
 </html>
